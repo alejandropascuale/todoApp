@@ -1,4 +1,4 @@
-const todosDAta = [
+const todosData = [
     {
         id: 1,
         text: 'Take out the trash',
@@ -64,4 +64,4 @@ const todosDAta = [
     },
 ]
 
-module.exports = { todosDAta };
+module.exports = { todosData };
