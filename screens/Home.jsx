@@ -30,7 +30,7 @@ export default function Home() {
         <Text style={styles.title}>Tomorrow</Text>
         <TodoList todosData={localData.filter(d => !d.isToday)}/>
         <TouchableOpacity style={styles.button}>
-            <Text style={styles.plus}>+</Text>
+            <Text style={styles.plus}>+ </Text>
         </TouchableOpacity>
     </View>
   )
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
       backgroundColor: '#000',
       position: 'absolute',
       bottom: 50,
-      right: 15,
+      right: 20,
       shadowColor: '#000',
       shadowOffset: {
           width: 0,
