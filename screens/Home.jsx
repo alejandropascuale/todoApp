@@ -4,14 +4,26 @@ import TodoList from '../components/TodoList';
 import { todosData } from '../data/todos';
 
 export default function Home() {
-    const [localData, setLocalData] = useState(todosData.sort((a, b) => {return a.isCompleted - b.isCompleted}))
+    const [localData, setLocalData] = useState(todosData.sort((a, b) => {return a.isCompleted - b.isCompleted}));
+    const [isHidden, setIsHidden] = useState(false);
+
+    const handleHidePress = () => {
+        if (isHidden) {
+            setIsHidden(false);
+            setLocalData(todosData.sort((a, b) => {return a.isCompleted - b.isCompleted}));
+            return;
+        }
+        setIsHidden(!isHidden);
+        setLocalData(localData.filter(todo => !todo.isCompleted));
+    }
+
   return (
     <View style={styles.container}>
         <Image source={{ uri: 'https://i.pravatar.cc/300' }} style={styles.pic}/>
         <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
             <Text style={styles.title}>Today</Text>
-            <TouchableOpacity>
-                <Text style={{ color: '#3478f6' }}>Hide Complete</Text>
+            <TouchableOpacity onPress={handleHidePress}>
+                <Text style={{ color: '#3478f6' }}>{isHidden ? 'Show Completed': 'Hide Complete'}</Text>
             </TouchableOpacity>
         </View>
         <TodoList todosData={localData.filter(d => d.isToday)}/>
