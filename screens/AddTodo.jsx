@@ -28,6 +28,11 @@ export default function AddTodo() {
                 style={{ width: '80%' }}
             />
         </View>
+        <Text style={styles.inputTitle}>Today</Text>
+        <Switch 
+            value={isToday}
+            onValueChange={(value) => { setIsToday(value) }}
+        />
     </View>
   )
 }
