@@ -1,12 +1,51 @@
-import React from 'react';
-import { Text, View } from 'react-native';
+import React, { useState } from 'react';
+import { Text, View, TouchableOpacity, StyleSheet, TextInput, Switch } from 'react-native';
 
 export default function AddTodo() {
+    const [name, setName] = useState('');
+    const [date, setDate] = useState(new Date());
+    const [isToday, setIsToday] = useState(false);
   return (
-    <View>
-        <Text>
-            this is the add text screen
-        </Text>
+    <View style={styles.container}>
+        <Text style={styles.title}>Add Task</Text>
+        <View style={styles.inputContainer}>
+            <Text style={styles.inputTitle}>Name</Text>
+            <TextInput 
+                style={styles.textInput}
+                placeholder='Task'
+                placeholderTextColor='#00000030'
+                onChangeText={(text) => {setName(text)}}
+            />
+        </View>
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#F7F8FA',
+        paddingHorizontal: 30,
+    },
+    title: {
+        fontSize: 34,
+        fontWeight: 'bold',
+        marginBottom: 35,
+        marginTop: 10,
+    },
+    inputTitle: {
+        fontSize: 20,
+        fontWeight: '600',
+        lineHeight: 24
+    },
+    textInput: {
+        borderBottomColor: '#00000030',
+        borderBottomWidth: 1,
+        width: '80%',
+    },
+    inputContainer: {
+        justifyContent: 'space-between',
+        flexDirection: 'row',
+        paddingBottom: 30,
+    }
+})
