@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import TodoList from '../components/TodoList';
 import { todosData } from '../data/todos';
 
@@ -8,7 +8,12 @@ export default function Home() {
   return (
     <View style={styles.container}>
         <Image source={{ uri: 'https://i.pravatar.cc/300' }} style={styles.pic}/>
-        <Text style={styles.title}>Today</Text>
+        <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+            <Text style={styles.title}>Today</Text>
+            <TouchableOpacity>
+                <Text style={{ color: '#3478f6' }}>Hide Complete</Text>
+            </TouchableOpacity>
+        </View>
         <TodoList todosData={localData.filter(d => d.isToday)}/>
         <Text style={styles.title}>Tomorrow</Text>
         <TodoList todosData={localData.filter(d => !d.isToday)}/>
