@@ -33,6 +33,9 @@ export default function AddTodo() {
             value={isToday}
             onValueChange={(value) => { setIsToday(value) }}
         />
+        <TouchableOpacity onPress={addTodo} style={styles.button}>
+            <Text style={{ color: 'white' }}>Done</Text>
+        </TouchableOpacity>
     </View>
   )
 }
@@ -63,5 +66,14 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         flexDirection: 'row',
         paddingBottom: 30,
+    },
+    button: {
+        marginTop: 30,
+        marginBottom: 15,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#000000',
+        height: 46,
+        borderRadius: 11,
     }
 })
