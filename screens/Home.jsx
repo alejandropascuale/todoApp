@@ -1,14 +1,16 @@
 import React from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
 import TodoList from '../components/TodoList';
+import { todosData } from '../data/todos';
 
 export default function Home() {
   return (
     <View style={styles.container}>
         <Image source={{ uri: 'https://i.pravatar.cc/300' }} style={styles.pic}/>
         <Text style={styles.title}>Today</Text>
+        <TodoList todosData={todosData.filter(d => d.isToday)}/>
         <Text style={styles.title}>Tomorrow</Text>
-        <TodoList />
+        <TodoList todosData={todosData.filter(d => !d.isToday)}/>
     </View>
   )
 }
