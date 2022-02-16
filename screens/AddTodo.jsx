@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Text, View, TouchableOpacity, StyleSheet, TextInput, Switch } from 'react-native';
+import DateTimePicker from '@react-native-community/datetimepicker'
 
 export default function AddTodo() {
     const [name, setName] = useState('');
@@ -15,6 +16,16 @@ export default function AddTodo() {
                 placeholder='Task'
                 placeholderTextColor='#00000030'
                 onChangeText={(text) => {setName(text)}}
+            />
+        </View>
+        <View style={styles.inputContainer}>
+            <Text style={styles.inputTitle}>Hour</Text>
+            <DateTimePicker
+                value={date}
+                mode={'time'}
+                is24Hour={true}
+                onChange={(event, selectDate) => setDate(selectDate)}
+                style={{ width: '80%' }}
             />
         </View>
     </View>
