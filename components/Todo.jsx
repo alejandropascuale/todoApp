@@ -1,11 +1,19 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native'
+import Checkbox from './Checkbox';
 
 export default function Todo({id, text, isCompleted, isToday, hour}) {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>{text}</Text>
-      <Text style={styles.time}>{hour}</Text>
+        <Checkbox 
+            id={id}
+            text={text}
+            isCompleted={isCompleted}
+            isToday={isToday}
+            hour={hour}
+            />
+        <Text style={styles.text}>{text}</Text>
+        <Text style={styles.time}>{hour}</Text>
     </View>
   )
 }
