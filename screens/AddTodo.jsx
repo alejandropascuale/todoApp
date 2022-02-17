@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { Text, View, TouchableOpacity, StyleSheet, TextInput, Switch } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { useNavigation } from '@react-navigation/native';
-import { auth, db } from '../config/firebase'
+import { db } from '../config/firebase';
+import { collection } from 'firebase/firestore';
+import moment from 'moment';
 
 export default function AddTodo() {
     const [name, setName] = useState('');
@@ -11,6 +13,11 @@ export default function AddTodo() {
     const navigation = useNavigation();
 
     const addTask = () => {
+        /* await collection(db, 'tasks').add({
+            name: name,
+            date: date,
+            isToday: isToday
+        }) */
         console.log(name, date, isToday);
         navigation.navigate('Home');
     }
@@ -34,7 +41,7 @@ export default function AddTodo() {
                 value={date}
                 mode={'time'}
                 is24Hour={true}
-                onChange={(event, selectDate) => setDate(selectDate)}
+                onChange={(selectDate) => setDate(moment(selectDate).format('HH:mm'))}
                 style={{ width: '80%' }}
             />
         </View>
