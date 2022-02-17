@@ -13,9 +13,10 @@ export default function AddTodo() {
             <Text style={styles.inputTitle}>Name</Text>
             <TextInput 
                 style={styles.textInput}
+                autoFocus={true}
                 placeholder='Task'
                 placeholderTextColor='#00000030'
-                onChangeText={(text) => {setName(text)}}
+                onChangeText={(text) => setName(text)}
             />
         </View>
         <View style={styles.inputContainer}>
@@ -33,7 +34,7 @@ export default function AddTodo() {
             value={isToday}
             onValueChange={(value) => { setIsToday(value) }}
         />
-        <TouchableOpacity onPress={addTodo} style={styles.button}>
+        <TouchableOpacity style={styles.button}>
             <Text style={{ color: 'white' }}>Done</Text>
         </TouchableOpacity>
     </View>
