@@ -1,11 +1,20 @@
 import React, { useState } from 'react';
 import { Text, View, TouchableOpacity, StyleSheet, TextInput, Switch } from 'react-native';
-import DateTimePicker from '@react-native-community/datetimepicker'
+import DateTimePicker from '@react-native-community/datetimepicker';
+import { useNavigation } from '@react-navigation/native';
+import { auth, db } from '../config/firebase'
 
 export default function AddTodo() {
     const [name, setName] = useState('');
     const [date, setDate] = useState(new Date());
     const [isToday, setIsToday] = useState(false);
+    const navigation = useNavigation();
+
+    const addTask = () => {
+        console.log(name, date, isToday);
+        navigation.navigate('Home');
+    }
+
   return (
     <View style={styles.container}>
         <Text style={styles.title}>Add Task</Text>
@@ -35,7 +44,7 @@ export default function AddTodo() {
             onValueChange={(value) => { setIsToday(value) }}
         />
         <TouchableOpacity style={styles.button}>
-            <Text style={{ color: 'white' }}>Done</Text>
+            <Text style={{ color: 'white' }} onPress={addTask}>Done</Text>
         </TouchableOpacity>
     </View>
   )
