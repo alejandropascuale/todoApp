@@ -4,7 +4,7 @@ const initialState = {
     todos = []
 }
 
-export default todoSlice = createSlice({
+export const todosSlice = createSlice({
     name: 'todos',
     initialState,
     reducers: {
@@ -33,5 +33,5 @@ export default todoSlice = createSlice({
     }
 })
 
-export const { setTodosReducer, addTodoReducer, hideCompletedReducer, updateTodoReducer, deleteTodoReducer } = todoSlice.actions;
+export const { setTodosReducer, addTodoReducer, hideCompletedReducer, updateTodoReducer, deleteTodoReducer } = todosSlice.actions;
 export default todoSlice.reducers;
