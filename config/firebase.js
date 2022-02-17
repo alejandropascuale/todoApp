@@ -8,12 +8,13 @@ import Constants from 'expo-constants';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAi2TAAMVUqbG0cAsgw2zoZgCURnFU7v3M",
-  authDomain: "todoapp-a617f.firebaseapp.com",
-  projectId: "todoapp-a617f",
-  storageBucket: "todoapp-a617f.appspot.com",
-  messagingSenderId: "1094879593127",
-  appId: "1:1094879593127:web:f329d8913c54b0d3aed182"
+    apiKey: Constants.manifest.extra.apiKey,
+    authDomain: Constants.manifest.extra.authDomain,
+    projectId: Constants.manifest.extra.projectId,
+    storageBucket: Constants.manifest.extra.storageBucket,
+    messagingSenderId: Constants.manifest.extra.messagingSenderId,
+    appId: Constants.manifest.extra.appId,
+    databaseURL: Constants.manifest.extra.databaseURL,
 };
 
 // Initialize Firebase
